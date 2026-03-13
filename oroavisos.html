@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OroAvisos • Product Launch & GTM — Andrea Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0b2c52;
+      --amber:     #ffba42;
+      --cream:     #fafaf6;
+      --orange:    #f77534;
+      --text-dark: #1a1a2e;
+      --text-mid:  #444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo img { height: 36px; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--navy) !important;
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: #e6a52e !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 110px 48px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.1);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.08);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .hero h2 {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-tag {
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── BODY SECTIONS ── */
+    .section {
+      background: #fff;
+      padding: 72px 48px;
+    }
+
+    .section.alt { background: var(--cream); }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .section h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .challenge-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+
+    .challenge-text strong { color: var(--text-dark); font-weight: 700; }
+
+    .logo-block {
+      text-align: center;
+      padding: 40px 0 8px;
+    }
+
+    .logo-block img {
+      max-height: 80px;
+      max-width: 260px;
+      object-fit: contain;
+    }
+
+    .role-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    .approach-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .approach-list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .approach-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .approach-list li strong { color: var(--text-dark); font-weight: 700; }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--navy);
+      padding: 72px 48px;
+    }
+
+    .results-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .results h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .results h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .results-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .results-bullets li {
+      list-style: none;
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      line-height: 1.7;
+    }
+
+    .results-bullets li .icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
+
+    /* ── KEY LEARNINGS ── */
+    .learnings {
+      background: #fff;
+      padding: 72px 48px;
+    }
+
+    .learnings-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 56px;
+      align-items: center;
+    }
+
+    .learnings-content h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .learnings-content h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .learnings-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .learnings-list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .learnings-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .learnings-list li strong { color: var(--text-dark); font-weight: 700; }
+
+    /* OroAvisos Ad */
+    .learnings-mockup {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    .learnings-mockup img {
+      width: 100%;
+      max-width: 220px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 8px 32px rgba(11,44,82,0.12);
+    }
+
+    .learnings-mockup img:hover {
+      transform: rotate(0deg) scale(1.03);
+    }
+
+    /* ── SKILLS USED ── */
+    .skills-used {
+      background: var(--cream);
+      padding: 56px 48px;
+    }
+
+    .skills-used-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 18px;
+      border-radius: 24px;
+    }
+
+    /* ── PROJECT NAV ── */
+    .project-nav {
+      background: #fff;
+      padding: 36px 48px;
+      border-top: 1px solid rgba(11,44,82,0.08);
+    }
+
+    .project-nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .project-nav a:hover { color: var(--orange); }
+    .project-nav a.disabled { color: #bbb; pointer-events: none; }
+    .project-nav .back { color: var(--text-mid); font-weight: 600; }
+    .project-nav .back:hover { color: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #071e3a;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    .footer-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-linkedin:hover { color: var(--amber); }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 0 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 24px; font-size: 16px; border-radius: 0; }
+      .nav-cta { margin: 8px 24px 0; display: inline-block; width: auto; border-radius: 24px !important; padding: 10px 22px !important; }
+      .hero { padding: 96px 24px 56px; }
+      .section, .results, .learnings, .skills-used, .project-nav { padding-left: 24px; padding-right: 24px; }
+      .learnings-inner { grid-template-columns: 1fr; gap: 40px; }
+      .learnings-mockup { order: 1; }
+      .learnings-mockup img { max-width: 100%; border-radius: 10px; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Andrea_A_Marketing.png" alt="Andrea A." />
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Let's talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>OroAvisos</h1>
+    <h2>Product Launch &amp; GTM Execution</h2>
+    <p class="hero-subtitle">Banco de Machala · Financial Services · 2024</p>
+    <p class="hero-description">Took ownership of a regulated bank product launch mid-flight and drove it to full deployment across specific channels, becoming the primary internal reference for the product post-launch.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Product Marketing</span>
+      <span class="hero-tag">GTM Strategy</span>
+      <span class="hero-tag">Product Launch</span>
+    </div>
+  </div>
+</section>
+
+<!-- THE CHALLENGE -->
+<section class="section">
+  <div class="section-inner">
+    <h3>The Challenge</h3>
+    <p class="challenge-text">
+      When I joined Banco de Machala as Product and Innovation Manager, the deployment of <strong>OroAvisos</strong> (a premium SMS notification service that keeps clients informed about the activity and status of their banking products) was already underway in Q1 2024, but needed a <strong>clear owner to drive it to the finish line</strong>. The product operated in a <strong>highly regulated environment</strong>, required precise pricing communication, and needed to be integrated across specific bank channels simultaneously. There was no room for misalignment; <strong>commercial teams, customer support, IT, and communications</strong> all needed to be moving in the same direction.
+    </p>
+    <div class="logo-block">
+      <img src="OroAvisos_logo.png" alt="OroAvisos logo" />
+    </div>
+  </div>
+</section>
+
+<!-- MY ROLE -->
+<section class="section alt">
+  <div class="section-inner">
+    <h3>My Role</h3>
+    <p class="role-text">As Product and Innovation Manager, I took over end-to-end GTM and launch execution, owning messaging, channel integration, testing, commercial enablement, and post-launch monitoring.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section">
+  <div class="section-inner">
+    <h3>Approach</h3>
+    <ul class="approach-list">
+      <li>Collaborated with the communications team to define <strong>messaging, positioning, and customer touchpoints</strong>, identifying where the product could be promoted most effectively along the customer journey.</li>
+      <li>Developed <strong>key messages for commercial and customer support teams</strong>, ensuring they could explain the product clearly to clients, including pricing, which needed to be both regulated and competitive in the market.</li>
+      <li>Led <strong>final testing before launch</strong> in specific channels, ensuring all features worked correctly and coordinating with developers to resolve issues before go-live.</li>
+      <li>Ensured <strong>full channel integration</strong> across in-person, website, and call center, coordinating across IT, development, and operations to deliver a seamless experience.</li>
+      <li>Monitored <strong>post-launch performance and transaction activity</strong> during the initial weeks to detect bugs, flag issues, and coordinate improvements in real time.</li>
+      <li>Became the <strong>primary internal reference point</strong> for OroAvisos; the go-to person for reporting malfunctions, providing detailed product information, and coordinating updates across teams.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner">
+    <h3>Results</h3>
+    <ul class="results-bullets">
+      <li><span class="icon">🚀</span> Product successfully launched across bank channels: in-person, website, and call center.</li>
+      <li><span class="icon">🔧</span> Post-launch issues identified and resolved within 2 weeks, working closely with Development and QA to diagnose, track, and fix problems in real time.</li>
+      <li><span class="icon">💬</span> Commercial and support teams fully enabled with clear messaging and pricing frameworks.</li>
+      <li><span class="icon">🔗</span> Became the primary internal reference for product updates, issue resolution, and stakeholder communication post-launch.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- KEY LEARNINGS -->
+<section class="learnings">
+  <div class="learnings-inner">
+    <div class="learnings-content">
+      <h3>Key Learnings</h3>
+      <ul class="learnings-list">
+        <li><strong>Taking over mid-flight is a leadership test.</strong> Inheriting a project in motion requires rapid context-building, immediate trust with cross-functional teams, and the ability to move fast without breaking what's already working.</li>
+        <li><strong>Pricing communication is a product decision.</strong> In a regulated environment, how you communicate price is as strategic as the price itself — clarity and compliance have to coexist.</li>
+        <li><strong>Launch is not the finish line.</strong> The most valuable work happened post-launch: monitoring, resolving issues, and becoming the person every team relied on for answers. Ownership doesn't end at go-live.</li>
+        <li><strong>Channel integration is harder than it looks.</strong> Getting in-person, website, and call center aligned simultaneously requires relentless cross-functional coordination and a single point of accountability.</li>
+      </ul>
+    </div>
+    <div class="learnings-mockup">
+      <img src="OroAvisos_Ad.jpeg" alt="OroAvisos product ad" />
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS USED -->
+<section class="skills-used">
+  <div class="skills-used-inner">
+    <div class="skill-tags">
+      <span class="skill-tag">Product Marketing</span>
+      <span class="skill-tag">GTM Strategy</span>
+      <span class="skill-tag">Product Launch</span>
+      <span class="skill-tag">Messaging</span>
+      <span class="skill-tag">Positioning</span>
+      <span class="skill-tag">Sales Enablement</span>
+      <span class="skill-tag">Cross-functional Coordination</span>
+      <span class="skill-tag">Stakeholder Management</span>
+      <span class="skill-tag">Channel Integration</span>
+      <span class="skill-tag">Post-launch Monitoring</span>
+      <span class="skill-tag">Regulatory Compliance</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<div class="project-nav">
+  <div class="project-nav-inner">
+    <a href="heva.html">← Previous project</a>
+    <a href="index.html#projects" class="back">Back to Projects</a>
+    <a href="#" class="disabled">Next project →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div></div>
+  <div class="footer-copy">© 2026 Andrea Aguilar · Marketing Manager · All rights reserved.</div>
+  <a href="https://www.linkedin.com/in/andrea-aguilar-m/" target="_blank" class="footer-linkedin">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    Connect on LinkedIn
+  </a>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
