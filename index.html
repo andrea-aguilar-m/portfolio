@@ -505,19 +505,86 @@
       text-align: center;
     }
 
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
-      nav { padding: 0 24px; }
+      nav { padding: 0 20px; }
+
+      .hamburger { display: flex; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 0 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-links li { width: 100%; }
+
+      .nav-links a {
+        display: block;
+        padding: 12px 24px;
+        font-size: 16px;
+        border-radius: 0;
+      }
+
+      .nav-cta {
+        margin: 8px 24px 0;
+        display: inline-block;
+        width: auto;
+        border-radius: 24px !important;
+        padding: 10px 22px !important;
+      }
+
       .hero { padding: 96px 24px 64px; }
-      .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
-      .hero-photo { width: 200px; height: 200px; }
-      .what { padding: 64px 24px; }
+      .hero-inner { flex-direction: column; gap: 32px; text-align: center; }
+      .hero-photo { width: 180px; height: 180px; }
+      .hero-text h1 { font-size: 36px; }
+      .btn-primary { width: 100%; text-align: center; }
+
+      .what { padding: 56px 24px; }
       .what-inner { grid-template-columns: 1fr; gap: 40px; }
-      .projects { padding: 64px 24px; }
+      .stats { gap: 28px; }
+
+      .projects { padding: 56px 24px; }
       .projects-grid { grid-template-columns: 1fr; }
-      .contact { padding: 64px 24px; }
-      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
-      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
+
+      .contact { padding: 56px 24px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 40px; }
+      .form-row { grid-template-columns: 1fr; }
+      .btn-submit { width: 100%; text-align: center; }
+
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
     }
   </style>
 </head>
@@ -528,7 +595,10 @@
   <a href="index.html" class="nav-logo">
     <img src="Andrea_A_Marketing.png" alt="Andrea A." />
   </a>
-  <ul class="nav-links">
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="about.html">About</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -627,8 +697,8 @@
         </div>
       </div>
 
-      <!-- Card 3: Danone -->
-      <div class="project-card">
+      <!-- Card 3: Danone — hidden until ready -->
+      <div class="project-card" style="display:none;">
         <div class="card-img">
           <img src="gato.png" alt="Danone Waters project" />
           <span class="card-tag navy">Content</span>
@@ -640,8 +710,8 @@
         </div>
       </div>
 
-      <!-- Card 4: Proserauto -->
-      <div class="project-card">
+      <!-- Card 4: Proserauto — hidden until ready -->
+      <div class="project-card" style="display:none;">
         <div class="card-img">
           <img src="gato.png" alt="Proserauto project" />
           <span class="card-tag">Growth</span>
@@ -699,5 +769,20 @@
   </a>
 </footer>
 
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  // Close menu when a link is clicked
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
 </body>
 </html>
