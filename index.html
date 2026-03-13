@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andrea Aguilar · B2B Marketing</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #0b2c52;
+      --amber:   #ffba42;
+      --cream:   #fafaf6;
+      --orange:  #f77534;
+      --navy-light: #123a6b;
+      --text-dark: #1a1a2e;
+      --text-mid:  #444;
+      --white:   #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo img {
+      height: 36px;
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--navy) !important;
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: #e6a52e !important;
+      color: var(--navy) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 96px 48px 64px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.12);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -120px; right: 60px;
+      width: 340px; height: 340px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.08);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 72px;
+      width: 100%;
+    }
+
+    .hero-photo {
+      flex-shrink: 0;
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid var(--amber);
+      position: relative;
+    }
+
+    .hero-photo img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text { flex: 1; }
+
+    .hero-text h1 {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span { color: var(--amber); }
+
+    .hero-sub {
+      font-size: 16px;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+      line-height: 1.6;
+      margin-bottom: 36px;
+      max-width: 520px;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 30px;
+      border-radius: 28px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover {
+      background: #e6a52e;
+      transform: translateY(-2px);
+    }
+
+    /* ── WHAT DO I DO ── */
+    .what {
+      background: var(--white);
+      padding: 96px 48px;
+    }
+
+    .what-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: start;
+    }
+
+    .what-left {}
+
+    .what-pillars {
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+
+    .pillar {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .pillar img {
+      width: 72px; height: 72px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .pillar-label {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .what-right {}
+
+    .what-right h2 {
+      font-size: clamp(28px, 3vw, 42px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .what-right p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--text-mid);
+      margin-bottom: 36px;
+      max-width: 460px;
+    }
+
+    .stats {
+      display: flex;
+      gap: 48px;
+      margin-bottom: 36px;
+    }
+
+    .stat-num {
+      font-size: 36px;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: var(--text-mid);
+      margin-top: 6px;
+      max-width: 140px;
+      line-height: 1.4;
+    }
+
+    .btn-outline {
+      display: inline-block;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-outline:hover {
+      color: var(--navy);
+      border-color: var(--navy);
+    }
+
+    /* ── FEATURED PROJECTS ── */
+    .projects {
+      background: #f0efeb;
+      padding: 96px 48px;
+    }
+
+    .projects-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      margin-bottom: 48px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(26px, 3vw, 38px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .section-header p {
+      font-size: 15px;
+      color: var(--text-mid);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+
+    .project-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 12px rgba(11,44,82,0.07);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px rgba(11,44,82,0.13);
+    }
+
+    .card-img {
+      position: relative;
+      height: 200px;
+      overflow: hidden;
+      background: #ddd;
+    }
+
+    .card-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+
+    .card-tag {
+      position: absolute;
+      top: 14px; left: 14px;
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+
+    .card-tag.orange { background: var(--orange); color: #fff; }
+    .card-tag.navy   { background: var(--navy); color: #fff; }
+
+    .card-body {
+      padding: 24px;
+    }
+
+    .card-body h3 {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .card-body p {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.65;
+      margin-bottom: 18px;
+    }
+
+    .card-link {
+      display: inline-block;
+      color: var(--orange);
+      font-weight: 700;
+      font-size: 14px;
+      text-decoration: none;
+      border-bottom: 2px solid var(--orange);
+      padding-bottom: 1px;
+      transition: color 0.2s;
+    }
+
+    .card-link:hover { color: var(--navy); border-color: var(--navy); }
+    .card-link.disabled { color: #aaa; border-color: #aaa; pointer-events: none; cursor: default; }
+
+    /* ── CONTACT ── */
+    .contact {
+      background: var(--navy);
+      padding: 96px 48px;
+    }
+
+    .contact-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .contact-left h2 {
+      font-size: clamp(28px, 3vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .contact-left h2 span { color: var(--amber); }
+
+    .contact-left p {
+      font-size: 15px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .contact-sig img {
+      height: 48px;
+    }
+
+    .contact-location {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
+    .contact-location svg { flex-shrink: 0; }
+
+    .contact-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      text-decoration: none;
+      margin-top: 8px;
+      transition: color 0.2s;
+    }
+
+    .contact-linkedin:hover { color: var(--amber); }
+
+    /* Form */
+    .contact-form { display: flex; flex-direction: column; gap: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 8px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 14px;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--amber); }
+
+    .contact-form textarea { height: 130px; resize: vertical; }
+
+    .btn-submit {
+      align-self: flex-end;
+      background: var(--amber);
+      color: var(--navy);
+      font-weight: 700;
+      font-size: 15px;
+      padding: 13px 32px;
+      border-radius: 28px;
+      border: none;
+      cursor: pointer;
+      font-family: 'Open Sans', sans-serif;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-submit:hover { background: #e6a52e; transform: translateY(-2px); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #071e3a;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-sig img { height: 40px; }
+
+    .footer-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-linkedin:hover { color: var(--amber); }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 24px; }
+      .hero { padding: 96px 24px 64px; }
+      .hero-inner { flex-direction: column; gap: 40px; text-align: center; }
+      .hero-photo { width: 200px; height: 200px; }
+      .what { padding: 64px 24px; }
+      .what-inner { grid-template-columns: 1fr; gap: 40px; }
+      .projects { padding: 64px 24px; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact { padding: 64px 24px; }
+      .contact-inner { grid-template-columns: 1fr; gap: 48px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; padding: 28px 24px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Andrea_A_Marketing.png" alt="Andrea A." />
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact" class="nav-cta">Let's talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-photo">
+      <img src="Andrea_Aguilar_Marketing_Manager.jpeg" alt="Andrea Aguilar" />
+    </div>
+    <div class="hero-text">
+      <h1>Hi! I'm <span>Andrea</span></h1>
+      <p class="hero-sub">
+        <strong style="color:#fff; font-size:1.15em;">I build marketing engines that generate real pipeline.</strong><br/>
+        <span style="font-size:14px; font-weight:400;">B2B Marketing &amp; Product Marketing · 10+ years · From strategy to launch.</span>
+      </p>
+      <a href="https://www.linkedin.com/in/andrea-aguilar-m/" target="_blank" class="btn-primary">Let's connect</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT DO I DO -->
+<section class="what">
+  <div class="what-inner">
+    <div class="what-left">
+      <div class="what-pillars">
+        <div class="pillar">
+          <img src="Marketing_B2B_icon.png" alt="B2B Marketing & GTM" />
+          <span class="pillar-label">B2B Marketing &amp; GTM</span>
+        </div>
+        <div class="pillar">
+          <img src="Product_Marketing_icon.png" alt="Product Marketing & Launch" />
+          <span class="pillar-label">Product Marketing &amp; Launch</span>
+        </div>
+        <div class="pillar">
+          <img src="Growth_Marketing_icon.png" alt="Growth & Demand Generation" />
+          <span class="pillar-label">Growth &amp; Demand Generation</span>
+        </div>
+      </div>
+    </div>
+    <div class="what-right">
+      <h2>What do I do?</h2>
+      <p>
+        I'm a B2B marketing leader with 10+ years building marketing functions from the ground up across SaaS, financial services, and sustainability. I sit at the intersection of full-funnel marketing leadership and product marketing, from GTM strategy to product launches to demand generation engines.
+      </p>
+      <div class="stats">
+        <div>
+          <div class="stat-num">2,700%</div>
+          <div class="stat-label">ROI on B2B lead generation campaigns</div>
+        </div>
+        <div>
+          <div class="stat-num">408%</div>
+          <div class="stat-label">Organic traffic growth through SEO</div>
+        </div>
+      </div>
+      <a href="about.html" class="btn-outline">View more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PROJECTS -->
+<section class="projects" id="projects">
+  <div class="projects-inner">
+    <div class="section-header">
+      <h2>Featured projects</h2>
+      <p>A selection of real work, real results.</p>
+    </div>
+    <div class="projects-grid">
+
+      <!-- Card 1: HeVA -->
+      <div class="project-card">
+        <div class="card-img">
+          <img src="heva_saas.png" alt="HeVA project" />
+          <span class="card-tag">SEO / Growth</span>
+        </div>
+        <div class="card-body">
+          <h3>HeVA • B2B Demand Generation &amp; SEO</h3>
+          <p>Built the full-funnel demand gen strategy for a SaaS sustainability platform from zero, delivering 2,700% ROI in 6 months and 408% organic traffic growth.</p>
+          <a href="heva.html" class="card-link">View more →</a>
+        </div>
+      </div>
+
+      <!-- Card 2: Ahorro Programado -->
+      <div class="project-card">
+        <div class="card-img">
+          <img src="gato.png" alt="Ahorro Programado project" />
+          <span class="card-tag orange">Product Marketing</span>
+        </div>
+        <div class="card-body">
+          <h3>Ahorro Programado • Product Launch &amp; GTM</h3>
+          <p>Acted as Product Owner for a regulated savings product, managing the backlog, defining positioning, and presenting the roadmap directly to the bank president.</p>
+          <span class="card-link disabled">View more →</span>
+        </div>
+      </div>
+
+      <!-- Card 3: Danone -->
+      <div class="project-card">
+        <div class="card-img">
+          <img src="gato.png" alt="Danone Waters project" />
+          <span class="card-tag navy">Content</span>
+        </div>
+        <div class="card-body">
+          <h3>Danone Waters • Global Advocacy Strategy</h3>
+          <p>Developed global advocacy assets, coordinating teams across France, Uruguay, Mexico, and Singapore.</p>
+          <span class="card-link disabled">View more →</span>
+        </div>
+      </div>
+
+      <!-- Card 4: Proserauto -->
+      <div class="project-card">
+        <div class="card-img">
+          <img src="gato.png" alt="Proserauto project" />
+          <span class="card-tag">Growth</span>
+        </div>
+        <div class="card-body">
+          <h3>Proserauto • Revenue Growth During the Pandemic</h3>
+          <p>Diversified a company's revenue streams during COVID, growing revenue 150% in 6 months and achieving 1,300% ROI on paid social campaigns.</p>
+          <span class="card-link disabled">View more →</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <h2>Let's work<br/><span>together</span></h2>
+      <p>Great marketing starts with the right conversation. Whether you have an open role or just want to connect, I'd love to hear from you.</p>
+      <div class="contact-sig">
+        <img src="Andrea_Aguilar_Marketing.png" alt="Andrea Aguilar" />
+      </div>
+      <div class="contact-location">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        France
+      </div>
+      <a href="https://www.linkedin.com/in/andrea-aguilar-m/" target="_blank" class="contact-linkedin">
+        <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
+    <form class="contact-form" action="https://formspree.io/f/mnjbkkpq" method="POST">
+      <div class="form-row">
+        <input type="text" name="first_name" placeholder="First Name*" required />
+        <input type="text" name="last_name" placeholder="Last Name*" required />
+      </div>
+      <input type="email" name="email" placeholder="E-mail address*" required />
+      <input type="text" name="subject" placeholder="Subject" />
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button type="submit" class="btn-submit">Send message</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">
+    © 2026 Andrea Aguilar · Marketing Manager · All rights reserved.
+  </div>
+  <a href="https://www.linkedin.com/in/andrea-aguilar-m/" target="_blank" class="footer-linkedin">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    Connect on LinkedIn
+  </a>
+</footer>
+
+</body>
+</html>
