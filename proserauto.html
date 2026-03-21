@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proserauto • Revenue Growth During the Pandemic — Andrea Aguilar</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:      #0b2c52;
+      --amber:     #ffba42;
+      --cream:     #fafaf6;
+      --orange:    #f77534;
+      --text-dark: #1a1a2e;
+      --text-mid:  #444;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+    }
+
+    .nav-logo img { height: 36px; display: block; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--amber); }
+    .nav-links a.active { color: var(--amber); }
+
+    .nav-cta {
+      background: var(--amber);
+      color: var(--navy) !important;
+      padding: 10px 22px;
+      border-radius: 24px;
+      font-weight: 700 !important;
+      transition: background 0.2s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover { background: #e6a52e !important; transform: translateY(-1px); }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      padding: 110px 48px 72px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -100px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.1);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -60px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,186,66,0.08);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .hero h2 {
+      font-size: clamp(18px, 2.5vw, 28px);
+      font-weight: 700;
+      color: var(--amber);
+      margin-bottom: 10px;
+      line-height: 1.2;
+    }
+
+    .hero-subtitle {
+      font-size: 14px;
+      color: rgba(255,255,255,0.55);
+      margin-bottom: 20px;
+      letter-spacing: 0.02em;
+    }
+
+    .hero-description {
+      font-size: 16px;
+      color: rgba(255,255,255,0.82);
+      line-height: 1.7;
+      margin-bottom: 32px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-tag {
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 24px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── BODY SECTIONS ── */
+    .section {
+      background: #fff;
+      padding: 72px 48px;
+    }
+
+    .section.alt { background: var(--cream); }
+
+    .section-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .section h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .section h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .challenge-text {
+      font-size: 15px;
+      line-height: 1.85;
+      color: var(--text-mid);
+    }
+
+    .challenge-text strong { color: var(--text-dark); font-weight: 700; }
+
+    .logo-block {
+      text-align: center;
+      padding: 40px 0 8px;
+    }
+
+    .logo-block img {
+      max-height: 80px;
+      max-width: 260px;
+      object-fit: contain;
+    }
+
+    .role-text {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--text-mid);
+    }
+
+    .approach-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .approach-list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .approach-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .approach-list li strong { color: var(--text-dark); font-weight: 700; }
+
+    /* ── RESULTS ── */
+    .results {
+      background: var(--navy);
+      padding: 72px 48px;
+    }
+
+    .results-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .results h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 40px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .results h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .results-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: clamp(28px, 3.5vw, 44px);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.4;
+    }
+
+    .results-bullets {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .results-bullets li {
+      list-style: none;
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      line-height: 1.6;
+    }
+
+    .results-bullets li .icon { flex-shrink: 0; font-size: 15px; }
+
+    /* ── KEY LEARNINGS ── */
+    .learnings {
+      background: #fff;
+      padding: 72px 48px;
+    }
+
+    .learnings-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 56px;
+      align-items: start;
+    }
+
+    .learnings-content h3 {
+      font-size: clamp(20px, 2.5vw, 28px);
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 24px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+
+    .learnings-content h3::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 3px;
+      background: var(--amber);
+      border-radius: 2px;
+    }
+
+    .learnings-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .learnings-list li {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .learnings-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--amber);
+      font-weight: 800;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .learnings-list li strong { color: var(--text-dark); font-weight: 700; }
+
+    /* YouTube embed */
+    .learnings-video {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .video-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--amber);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%; /* 16:9 */
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(11,44,82,0.12);
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── SKILLS USED ── */
+    .skills-used {
+      background: var(--cream);
+      padding: 56px 48px;
+    }
+
+    .skills-used-inner {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill-tag {
+      background: var(--amber);
+      color: var(--navy);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 7px 18px;
+      border-radius: 24px;
+    }
+
+    /* ── PROJECT NAV ── */
+    .project-nav {
+      background: #fff;
+      padding: 36px 48px;
+      border-top: 1px solid rgba(11,44,82,0.08);
+    }
+
+    .project-nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .project-nav a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s;
+    }
+
+    .project-nav a:hover { color: var(--orange); }
+    .project-nav a.disabled { color: #bbb; pointer-events: none; cursor: default; }
+    .project-nav .back { color: var(--text-mid); font-weight: 600; }
+    .project-nav .back:hover { color: var(--navy); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #071e3a;
+      padding: 28px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .footer-copy {
+      font-size: 12px;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+    }
+
+    .footer-linkedin {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    .footer-linkedin:hover { color: var(--amber); }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+      background: none;
+      border: none;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 0 20px; }
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 64px; left: 0; right: 0;
+        background: var(--navy);
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+        padding: 8px 0 16px;
+        box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links a { display: block; padding: 12px 24px; font-size: 16px; border-radius: 0; }
+      .nav-cta { margin: 8px 24px 0; display: inline-block; width: auto; border-radius: 24px !important; padding: 10px 22px !important; }
+      .hero { padding: 96px 24px 56px; }
+      .section, .results, .learnings, .skills-used, .project-nav { padding-left: 24px; padding-right: 24px; }
+      .results-stats { grid-template-columns: repeat(2, 1fr); }
+      .learnings-inner { grid-template-columns: 1fr; gap: 40px; }
+      .learnings-video { order: 1; }
+      footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="Andrea_A_Marketing.png" alt="Andrea A." />
+  </a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="index.html#projects" class="active">Projects</a></li>
+    <li><a href="index.html#contact" class="nav-cta">Let's talk</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Proserauto</h1>
+    <h2>Revenue Growth During the Pandemic</h2>
+    <p class="hero-subtitle">Proserauto S.A. · Automotive · Ecuador · 2020–2022</p>
+    <p class="hero-description">Diversified a company's revenue streams during COVID-19, grew revenue by 150% in 6 months, and achieved 1,300% ROI on paid campaigns as the sole marketer with a lean budget.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">Growth Marketing</span>
+      <span class="hero-tag">Performance Marketing</span>
+      <span class="hero-tag">Email Marketing</span>
+    </div>
+  </div>
+</section>
+
+<!-- THE CHALLENGE -->
+<section class="section">
+  <div class="section-inner">
+    <h3>The Challenge</h3>
+    <p class="challenge-text">
+      Proserauto was a high-performance equipment company for 4x4 vehicles with a single location, two sales representatives, and an average monthly revenue of ~$100,000. When the <strong>COVID-19 pandemic hit in 2020</strong>, demand for high-performance equipment dropped sharply and the company had <strong>no recurring revenue stream, low digital presence, and no CRM</strong> to fall back on. As the <strong>sole marketer</strong>, I was responsible for finding a way to keep the business alive and growing during mandatory curfews and a collapsed primary market.
+    </p>
+    <div class="logo-block">
+      <img src="proserauto_logo.png" alt="Proserauto logo" />
+    </div>
+  </div>
+</section>
+
+<!-- MY ROLE -->
+<section class="section alt">
+  <div class="section-inner">
+    <h3>My Role</h3>
+    <p class="role-text">Marketing Manager; sole marketer with full ownership of strategy, execution, budget, and a direct line to the owner.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="section">
+  <div class="section-inner">
+    <h3>Approach</h3>
+    <ul class="approach-list">
+      <li>Conducted <strong>benchmarking and supplier analysis</strong> to identify viable recurring services, landing on oil changes and vehicle maintenance as the highest-potential opportunity given the existing client base and infrastructure.</li>
+      <li>Developed <strong>special packages and pricing</strong> for the new recurring services, balancing competitiveness with margin viability during a period of reduced overall demand.</li>
+      <li>Launched the <strong>first paid advertising campaigns</strong> for the company across Instagram and Facebook, promoting the new recurring services, growing recurring service customers from <strong>0 to 300 in the first month</strong>, despite mandatory curfews.</li>
+      <li>Developed <strong>email marketing campaigns</strong> targeting existing high-revenue clients and new prospects for both recurring services and high-performance products, achieving an average <strong>30% open rate</strong>.</li>
+      <li>Conducted extensive <strong>ad optimization</strong>: testing copy, visuals, posting timing, and audience targeting to identify the most profitable segments, achieving <strong>1,300% ROI</strong> on advertising investment of approximately 1% of revenue.</li>
+      <li>Implemented <strong>HubSpot CRM</strong> to track opportunities, identify recurring and loyal customers, and introduced a <strong>loyalty program</strong> for clients spending over $20,000/month, including special discounts and invitations to sponsored events like races and off-road excursions post-pandemic.</li>
+      <li>Built a <strong>product wagon framework</strong> for the sales team to identify and capture cross-selling and upselling opportunities across the product range.</li>
+      <li>Built the <strong>company website on Squarespace</strong>: mapped content architecture, wrote all product descriptions, selected imagery, and optimized user flow and experience.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="results">
+  <div class="results-inner">
+    <h3>Results</h3>
+    <div class="results-stats">
+      <div>
+        <div class="stat-num">150%</div>
+        <div class="stat-label">Revenue growth in 6 months</div>
+      </div>
+      <div>
+        <div class="stat-num">1,300%</div>
+        <div class="stat-label">ROI on paid social</div>
+      </div>
+      <div>
+        <div class="stat-num">300</div>
+        <div class="stat-label">New recurring customers in month 1</div>
+      </div>
+      <div>
+        <div class="stat-num">30%</div>
+        <div class="stat-label">Average email open rate</div>
+      </div>
+    </div>
+    <ul class="results-bullets">
+      <li><span class="icon">📈</span> 150% revenue growth within 6 months of launching recurring services</li>
+      <li><span class="icon">🚀</span> 0 to 300 recurring service customers in the first month alone</li>
+      <li><span class="icon">🎯</span> 1,300% ROI on paid social campaigns with a media investment of ~1% of revenue</li>
+      <li><span class="icon">📧</span> 30% average email open rate across campaigns targeting high-revenue products and new services</li>
+      <li><span class="icon">🔧</span> Two permanent revenue streams established; high-performance equipment and recurring maintenance services both remained in place after the pandemic</li>
+    </ul>
+  </div>
+</section>
+
+<!-- KEY LEARNINGS -->
+<section class="learnings">
+  <div class="learnings-inner">
+    <div class="learnings-content">
+      <h3>Key Learnings</h3>
+      <ul class="learnings-list">
+        <li><strong>Constraints force creativity.</strong> A mandatory curfew, a collapsed primary market, and a budget of 1% of revenue left no room for waste; every decision had to be precise, and that precision is what drove the results.</li>
+        <li><strong>Diversification is a marketing strategy.</strong> Identifying, pricing, and launching a new service line wasn't just a business decision; it required marketing thinking from day one: benchmarking, positioning, packaging, and promotion.</li>
+        <li><strong>Loyalty compounds.</strong> The clients who were nurtured through the pandemic with special packages and personalized outreach became the most valuable long-term customers. Retention built during a crisis outlasts the crisis itself.</li>
+        <li><strong>Owning everything teaches you fast.</strong> Being the sole marketer owning strategy, execution, budget, reporting, and sales alignment meant there was no one else to blame and no room to specialize. It built a kind of marketing instinct that broader teams rarely develop.</li>
+      </ul>
+    </div>
+    <div class="learnings-video">
+      <div class="video-label">Watch a campaign ad</div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/Hej6k8sd3OE"
+          title="Proserauto campaign ad"
+          allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS USED -->
+<section class="skills-used">
+  <div class="skills-used-inner">
+    <div class="skill-tags">
+      <span class="skill-tag">Growth Marketing</span>
+      <span class="skill-tag">Performance Marketing</span>
+      <span class="skill-tag">Email Marketing</span>
+      <span class="skill-tag">CRM</span>
+      <span class="skill-tag">HubSpot</span>
+      <span class="skill-tag">Paid Social</span>
+      <span class="skill-tag">A/B Testing</span>
+      <span class="skill-tag">Audience Targeting</span>
+      <span class="skill-tag">Content Strategy</span>
+      <span class="skill-tag">Budget Management</span>
+      <span class="skill-tag">Customer Loyalty</span>
+      <span class="skill-tag">Market Research</span>
+      <span class="skill-tag">Squarespace</span>
+      <span class="skill-tag">Sales Enablement</span>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECT NAVIGATION -->
+<div class="project-nav">
+  <div class="project-nav-inner">
+    <a href="danone.html">← Previous project</a>
+    <a href="index.html#projects" class="back">Back to Projects</a>
+    <a href="#" class="disabled">Next project →</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div></div>
+  <div class="footer-copy">© 2026 Andrea Aguilar · Marketing Manager · All rights reserved.</div>
+  <a href="https://www.linkedin.com/in/andrea-aguilar-m/" target="_blank" class="footer-linkedin">
+    <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    Connect on LinkedIn
+  </a>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      navLinks.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
