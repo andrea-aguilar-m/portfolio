@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HeVA • B2B Demand Generation — Andrea Aguilar</title>
+  <title>HeVA • SaaS Product Marketing & Launch — Andrea Aguilar</title>
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -116,7 +116,7 @@
     }
 
     .hero h2 {
-      font-size: clamp(20px, 2.5vw, 30px);
+      font-size: clamp(18px, 2.5vw, 28px);
       font-weight: 700;
       color: var(--amber);
       margin-bottom: 10px;
@@ -148,20 +148,13 @@
     }
 
     .hero-tag {
-      background: rgba(255,255,255,0.12);
-      color: #fff;
+      background: var(--amber);
+      color: var(--navy);
       font-size: 13px;
       font-weight: 700;
       padding: 8px 20px;
       border-radius: 24px;
-      border: 1px solid rgba(255,255,255,0.2);
       letter-spacing: 0.02em;
-    }
-
-    .hero-tag.amber {
-      background: var(--amber);
-      color: var(--navy);
-      border-color: var(--amber);
     }
 
     /* ── BODY SECTIONS ── */
@@ -177,7 +170,6 @@
       margin: 0 auto;
     }
 
-    /* Section headings */
     .section h3 {
       font-size: clamp(20px, 2.5vw, 28px);
       font-weight: 800;
@@ -196,7 +188,6 @@
       border-radius: 2px;
     }
 
-    /* Challenge */
     .challenge-text {
       font-size: 15px;
       line-height: 1.85;
@@ -205,7 +196,6 @@
 
     .challenge-text strong { color: var(--text-dark); font-weight: 700; }
 
-    /* Logo centred */
     .logo-block {
       text-align: center;
       padding: 40px 0 8px;
@@ -217,14 +207,12 @@
       object-fit: contain;
     }
 
-    /* My Role */
     .role-text {
       font-size: 15px;
       line-height: 1.8;
       color: var(--text-mid);
     }
 
-    /* Approach */
     .approach-list {
       list-style: none;
       display: flex;
@@ -281,45 +269,23 @@
       border-radius: 2px;
     }
 
-    .results-stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 32px;
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .stat-num {
-      font-size: clamp(28px, 3.5vw, 44px);
-      font-weight: 800;
-      color: #fff;
-      line-height: 1;
-      margin-bottom: 6px;
-    }
-
-    .stat-label {
-      font-size: 13px;
-      color: rgba(255,255,255,0.55);
-      line-height: 1.4;
-    }
-
     .results-bullets {
       display: flex;
       flex-direction: column;
-      gap: 10px;
+      gap: 14px;
     }
 
     .results-bullets li {
       list-style: none;
-      font-size: 14px;
-      color: rgba(255,255,255,0.8);
+      font-size: 15px;
+      color: rgba(255,255,255,0.85);
       display: flex;
       align-items: flex-start;
-      gap: 10px;
-      line-height: 1.6;
+      gap: 12px;
+      line-height: 1.7;
     }
 
-    .results-bullets li .icon { flex-shrink: 0; font-size: 15px; }
+    .results-bullets li .icon { flex-shrink: 0; font-size: 16px; margin-top: 1px; }
 
     /* ── KEY LEARNINGS ── */
     .learnings {
@@ -438,23 +404,11 @@
       font-size: 14px;
       font-weight: 700;
       transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
     .project-nav a:hover { color: var(--orange); }
-
-    .project-nav a.disabled {
-      color: #bbb;
-      pointer-events: none;
-    }
-
-    .project-nav .back {
-      color: var(--text-mid);
-      font-weight: 600;
-    }
-
+    .project-nav a.disabled { color: #bbb; pointer-events: none; cursor: default; }
+    .project-nav .back { color: var(--text-mid); font-weight: 600; }
     .project-nav .back:hover { color: var(--navy); }
 
     /* ── FOOTER ── */
@@ -494,6 +448,7 @@
       background: none;
       border: none;
     }
+
     .hamburger span {
       display: block;
       width: 24px; height: 2px;
@@ -501,10 +456,11 @@
       border-radius: 2px;
       transition: all 0.3s;
     }
+
     .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
     .hamburger.open span:nth-child(2) { opacity: 0; }
     .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-    
+
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
       nav { padding: 0 20px; }
@@ -526,8 +482,7 @@
       .nav-cta { margin: 8px 24px 0; display: inline-block; width: auto; border-radius: 24px !important; padding: 10px 22px !important; }
       .hero { padding: 96px 24px 56px; }
       .section, .results, .learnings, .skills-used, .project-nav { padding-left: 24px; padding-right: 24px; }
-      .results-stats { grid-template-columns: repeat(2, 1fr); }
-      .learnings-inner { grid-template-columns: 1fr; }
+      .learnings-inner { grid-template-columns: 1fr; gap: 40px; }
       .learnings-mascot { display: none; }
       footer { flex-direction: column; gap: 12px; text-align: center; padding: 24px 20px; }
     }
@@ -555,13 +510,13 @@
 <section class="hero">
   <div class="hero-inner">
     <h1>HeVA</h1>
-    <h2>B2B Demand Generation &amp; SEO</h2>
-    <p class="hero-subtitle">SICMA Ecuador · Sustainability SaaS · 2023–2024</p>
-    <p class="hero-description">Took a SaaS sustainability platform from zero market visibility to 2,700% ROI in online advertising and 408% organic traffic growth, built from scratch in under 14 months.</p>
+    <h2>SaaS Product Marketing &amp; Launch</h2>
+    <p class="hero-subtitle">SICMA Ecuador · B2B SaaS · 2023–2024</p>
+    <p class="hero-description">Owned the full product marketing function for a B2B SaaS sustainability platform, from positioning and messaging to demo scripting, sales enablement, and the launch of a new sustainability module.</p>
     <div class="hero-tags">
-      <span class="hero-tag amber">GTM Strategy</span>
-      <span class="hero-tag amber">SEO / Growth</span>
-      <span class="hero-tag amber">SaaS Marketing</span>
+      <span class="hero-tag">Product Marketing</span>
+      <span class="hero-tag">SaaS</span>
+      <span class="hero-tag">GTM Strategy</span>
     </div>
   </div>
 </section>
@@ -571,7 +526,7 @@
   <div class="section-inner">
     <h3>The Challenge</h3>
     <p class="challenge-text">
-      SICMA Ecuador had a strong product, <strong>HeVA</strong>, a <strong>SaaS environmental management platform</strong>, but no <strong>marketing function</strong>, low <strong>digital presence</strong>, and no <strong>pipeline</strong>. The company relied entirely on direct sales and word of mouth. I was their <strong>first marketing hire</strong> with a single mission: build the engine that would bring <strong>qualified leads</strong> to the commercial team and position HeVA as the go-to <strong>sustainability platform</strong> for medium and large companies in Ecuador (and eventually, <strong>internationally</strong>).
+      HeVA is a <strong>B2B environmental management platform</strong> developed by SICMA Ecuador, an early-stage sustainability consultancy. The platform centralises environmental data, automates compliance processes, generates reports, and monitors key metrics such as carbon footprint in real time. Originally offered as a <strong>bundled benefit within service contracts</strong>, HeVA had no dedicated product marketing, no standalone identity, and no monetisation strategy. Despite being a technically strong product, HeVA had <strong>no clear positioning for different buyer profiles, no sales materials, no demo scripts, and no structured launch strategy</strong> for new features. As the first marketing hire, I took on the product marketing function alongside the broader B2B marketing role, translating a highly technical product into messaging that would resonate with <strong>sustainability managers, environmental directors, and C-suite decision-makers</strong>.
     </p>
     <div class="logo-block">
       <img src="heva_logo.png" alt="HeVA logo" />
@@ -583,7 +538,7 @@
 <section class="section alt">
   <div class="section-inner">
     <h3>My Role</h3>
-    <p class="role-text">Marketing Team Lead with end-to-end ownership of strategy, execution, and team management, reporting directly to the CEO.</p>
+    <p class="role-text">Marketing Team Lead. Took on full product marketing ownership for HeVA alongside the broader marketing function, reporting directly to the CEO.</p>
   </div>
 </section>
 
@@ -592,12 +547,14 @@
   <div class="section-inner">
     <h3>Approach</h3>
     <ul class="approach-list">
-      <li>Conducted a full <strong>digital presence audit</strong> and developed a <strong>content strategy</strong>, <strong>social media strategy</strong>, and <strong>SEO optimization plan</strong> as the foundation for all subsequent work.</li>
-      <li>Redesigned the company website with improved <strong>UX</strong>, <strong>copywriting</strong>, and <strong>technical SEO</strong>, optimizing headings, images, and keywords to target sustainability managers, environmental managers, and <strong>C-suite decision-makers</strong>.</li>
-      <li>Built a <strong>full-funnel demand generation strategy</strong> using <strong>Google Ads</strong> and <strong>Meta Ads</strong>, defining <strong>ICPs</strong> and <strong>buyer personas</strong> per industry segment and integrating the pipeline into <strong>HubSpot</strong> for lead tracking and qualification.</li>
-      <li>Led full <strong>product marketing</strong> for HeVA: translated complex technical features into clear <strong>positioning and messaging</strong>, created a dedicated <strong>product page</strong>, scripted <strong>commercial and technical demos</strong>, and developed a complete <strong>sales enablement toolkit</strong> including demo videos, sales decks, FAQ documents, and objection-handling guides.</li>
-      <li>Organized exclusive <strong>bottom-of-funnel events</strong>, CEO breakfasts targeting <strong>sustainability directors</strong>, and coordinated <strong>webinars</strong> to nurture and convert qualified leads at the bottom of the funnel.</li>
-      <li>Drove <strong>US market expansion</strong> by building SICMA International (bilingual EN/ES website), conducting <strong>keyword and market research</strong> for the US market, and launching <strong>Google Ads and SEO campaigns</strong> to build international awareness.</li>
+      <li>Defined <strong>ICP profiles and buyer personas</strong> for HeVA across different industries, identifying the specific pain points, goals, and decision-making triggers for each segment.</li>
+      <li>Translated complex technical features into <strong>clear, accessible positioning and messaging</strong> tailored to each ICP, making environmental compliance and carbon tracking concepts understandable for non-technical buyers.</li>
+      <li>Created a <strong>dedicated HeVA product page</strong> with structured messaging, feature breakdowns, and clear value propositions.</li>
+      <li>Trained and briefed the <strong>sales team on HeVA's value proposition per ICP</strong>, standardising how the product was presented across different client contexts.</li>
+      <li>Developed a complete <strong>sales enablement toolkit</strong>: demo videos, sales decks, FAQ documents, and objection-handling guides to support the commercial team in closing deals.</li>
+      <li>Developed the <strong>GTM strategy for the planned launch of HeVA's sustainability module</strong>, including positioning, messaging, and communication plan for both new prospects and existing clients.</li>
+      <li>Proposed and defined a <strong>user engagement strategy</strong> for the platform, including push notifications, email alerts, and data submission reminders, prioritising active platform usage and compliance with reporting deadlines.</li>
+      <li>Defined <strong>HeVA's international positioning for the US market</strong>, aligning messaging with ISO and GRI sustainability guidelines to make the product viable for global clients.</li>
     </ul>
   </div>
 </section>
@@ -606,29 +563,11 @@
 <section class="results">
   <div class="results-inner">
     <h3>Results</h3>
-    <div class="results-stats">
-      <div>
-        <div class="stat-num">2700%</div>
-        <div class="stat-label">ROI</div>
-      </div>
-      <div>
-        <div class="stat-num">+408%</div>
-        <div class="stat-label">Organic website traffic</div>
-      </div>
-      <div>
-        <div class="stat-num">~30</div>
-        <div class="stat-label">Qualified leads/month</div>
-      </div>
-      <div>
-        <div class="stat-num">US</div>
-        <div class="stat-label">New Market</div>
-      </div>
-    </div>
     <ul class="results-bullets">
-      <li><span class="icon">🎯</span> 2,700% ROI on online advertising within 6 months</li>
-      <li><span class="icon">📈</span> 408% growth in organic website traffic through SEO</li>
-      <li><span class="icon">🧲</span> ~30 qualified leads/month generated for programs valued at $2,000–$5,000</li>
-      <li><span class="icon">🌎</span> New market entered. SICMA International launched in English and Spanish for the US market</li>
+      <li><span class="icon">📦</span> Product marketing function built from scratch: positioning, messaging, and sales enablement; none existed before.</li>
+      <li><span class="icon">🚀</span> GTM strategy defined for the sustainability module, including messaging framework, launch assets, and internal rollout plan. Ready for execution at the time of departure.</li>
+      <li><span class="icon">🌎</span> International positioning defined for the US market, aligned with ISO and GRI guidelines, enabling HeVA to be offered to global clients.</li>
+      <li><span class="icon">💬</span> Sales team fully enabled with scripted demos, objection-handling guides, and video assets, reducing reliance on ad-hoc presentations.</li>
     </ul>
   </div>
 </section>
@@ -639,10 +578,10 @@
     <div class="learnings-content">
       <h3>Key Learnings</h3>
       <ul class="learnings-list">
-        <li><strong>Positioning beats budget.</strong> The highest-ROI campaigns weren't the biggest — they were the most precisely targeted.</li>
-        <li><strong>Translation is the hardest B2B skill.</strong> Converting technical sustainability frameworks into C-suite messaging requires as much strategy as the campaign itself.</li>
-        <li><strong>Enablement is as important as lead gen.</strong> Leads only became pipeline when the sales team had the right scripts, decks, and objection-handling tools.</li>
-        <li><strong>Iterate fast.</strong> The 408% organic growth came from dozens of small optimizations, not one big move.</li>
+        <li><strong>Product marketing without a PMM title is still product marketing.</strong> The work of translating technical complexity into buyer-relevant messaging is the same regardless of what your job title says, and doing it without a dedicated function forces you to be more resourceful.</li>
+        <li><strong>ICP clarity unlocks everything else.</strong> Once we defined who HeVA was really for (and what each segment cared about), positioning, demos, and sales conversations became significantly more effective.</li>
+        <li><strong>Enablement is the bridge between marketing and revenue.</strong> Generating interest is only half the job. The leads only converted when the commercial team could confidently demo, handle objections, and communicate value in the client's language.</li>
+        <li><strong>B2B product marketing can't focus solely on acquisition.</strong> HeVA's strongest growth opportunity was expansion within SICMA's existing client base; clients already in regulatory services contracts were natural candidates for upsell into carbon footprint and sustainability modules. That required a different message and a different motion than new business.</li>
       </ul>
     </div>
     <div class="learnings-mascot">
@@ -655,22 +594,18 @@
 <section class="skills-used">
   <div class="skills-used-inner">
     <div class="skill-tags">
-      <span class="skill-tag">B2B Marketing</span>
-      <span class="skill-tag">GTM Strategy</span>
-      <span class="skill-tag">SEO/SEM</span>
-      <span class="skill-tag">Google Ads</span>
-      <span class="skill-tag">Meta Ads</span>
       <span class="skill-tag">Product Marketing</span>
-      <span class="skill-tag">HubSpot</span>
-      <span class="skill-tag">Sales Enablement</span>
-      <span class="skill-tag">Content Strategy</span>
-      <span class="skill-tag">Lead Generation</span>
       <span class="skill-tag">ICP Definition</span>
       <span class="skill-tag">Buyer Personas</span>
-      <span class="skill-tag">Lifecycle Marketing</span>
+      <span class="skill-tag">Positioning &amp; Messaging</span>
+      <span class="skill-tag">Demo Scripting</span>
+      <span class="skill-tag">Sales Enablement</span>
+      <span class="skill-tag">GTM Strategy</span>
+      <span class="skill-tag">Product Launch</span>
+      <span class="skill-tag">Content Strategy</span>
+      <span class="skill-tag">Email Marketing</span>
+      <span class="skill-tag">SaaS</span>
       <span class="skill-tag">Google Analytics</span>
-      <span class="skill-tag">SEMRush</span>
-      <span class="skill-tag">WordPress</span>
       <span class="skill-tag">ClickUp</span>
     </div>
   </div>
@@ -679,9 +614,9 @@
 <!-- PROJECT NAVIGATION -->
 <div class="project-nav">
   <div class="project-nav-inner">
-    <a href="#" class="disabled">← Previous project</a>
+    <a href="oroavisos.html">← Previous project</a>
     <a href="index.html#projects" class="back">Back to Projects</a>
-    <a href="oroavisos.html">Next project →</a>
+    <a href="sicma.html">Next project →</a>
   </div>
 </div>
 
@@ -709,5 +644,6 @@
     });
   });
 </script>
+
 </body>
 </html>
